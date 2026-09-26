@@ -1,0 +1,37 @@
+{
+  "incident_id": "INC-DEMO-0001",
+  "title": "Suspicious authentication followed by endpoint activity",
+  "status": "investigating",
+  "severity": "high",
+  "source": "demo-xdr",
+  "identity": {
+    "user": "alex.analyst@example.com",
+    "source_ip": "198.51.100.27"
+  },
+  "asset": {
+    "hostname": "DEMO-ENDPOINT-01",
+    "ip": "192.0.2.44"
+  },
+  "observations": [
+    {
+      "type": "authentication",
+      "result": "success",
+      "country": "EX"
+    },
+    {
+      "type": "endpoint_alert",
+      "category": "suspicious-process",
+      "confidence": 0.87
+    }
+  ],
+  "enrichment": {
+    "indicator": "198.51.100.27",
+    "reputation": "demo-suspicious",
+    "source": "fictional-threat-intelligence"
+  },
+  "assessment": {
+    "risk_score": 7,
+    "analyst_action": "Validate identity activity and isolate the asset if compromise is confirmed."
+  },
+  "notice": "All values in this example are fictional or reserved for documentation."
+}
