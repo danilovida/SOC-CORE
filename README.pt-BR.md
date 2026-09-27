@@ -30,6 +30,14 @@ Sempre que uma tecnologia fornecer um mecanismo acessível para consulta, coleta
 
 A viabilidade de integração depende naturalmente dos recursos expostos pela tecnologia de origem, incluindo APIs, autenticação, permissões, licenciamento, qualidade dos dados, conectividade, limites de consumo e demais restrições técnicas.
 
+### Gestão de Vulnerabilidades
+
+O SOC CORE foi projetado para **se adaptar ao ecossistema de Gestão de Vulnerabilidades já existente na organização**. Quando a empresa já possui uma plataforma dedicada de vulnerability management ou scanning, o SOC CORE pode consumir os achados e o contexto disponibilizados por essa tecnologia por meio dos mecanismos de integração suportados, incorporando essas informações aos fluxos de correlação, priorização e operação de segurança.
+
+Quando a organização não dispõe de uma solução dedicada de scanning, o **SOC CORE também possui capacidade integrada de varredura de vulnerabilidades**, permitindo identificar exposições técnicas e utilizar esses achados no mesmo contexto operacional empregado para análise, priorização e resposta.
+
+Dessa forma, a Gestão de Vulnerabilidades pode funcionar tanto como uma **capacidade externa integrada quanto como uma capacidade nativa do SOC CORE**, de acordo com a infraestrutura e o ecossistema de segurança da empresa.
+
 ---
 
 ## Princípios de Projeto
@@ -74,7 +82,7 @@ O SOC CORE explora temas como:
 - Correlação de incidentes
 - Threat Intelligence
 - Enriquecimento de IOC
-- Contexto de vulnerabilidades
+- Gestão de Vulnerabilidades e scanning integrado
 - Segurança de identidade
 - Automação e orquestração
 - Análise assistida por IA
