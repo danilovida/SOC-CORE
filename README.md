@@ -48,6 +48,14 @@ Whenever a technology provides an accessible mechanism for retrieving, collectin
 
 > Integration feasibility always depends on what the source technology exposes, including API capabilities, authentication, permissions, licensing, data quality, connectivity, rate limits and other technical restrictions.
 
+### Vulnerability Management
+
+SOC CORE is designed to **adapt to the organization's existing vulnerability management ecosystem**. When a company already operates a vulnerability management or scanning platform, SOC CORE can consume the available findings and context through supported integration mechanisms and incorporate them into correlation, prioritization and security operations workflows.
+
+When no dedicated vulnerability scanning solution is available, **SOC CORE also provides an integrated vulnerability scanning capability**, allowing the platform to identify technical exposures and feed vulnerability findings into the same operational context used for analysis, prioritization and response.
+
+This means vulnerability management can operate as either an **integrated external capability or a native SOC CORE capability**, depending on the organization's infrastructure and existing security stack.
+
 ---
 
 ## Conceptual Architecture
@@ -200,7 +208,7 @@ SOC CORE explores security engineering across:
 - Incident correlation
 - Threat intelligence
 - IOC enrichment
-- Vulnerability context
+- Vulnerability management and integrated scanning
 - Identity security
 - Security automation
 - Incident orchestration
