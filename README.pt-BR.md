@@ -40,6 +40,30 @@ Dessa forma, a Gestão de Vulnerabilidades pode funcionar tanto como uma **capac
 
 ---
 
+### Web Chat / SOC CORE IA
+
+O **SOC CORE possui uma interface Web Chat voltada às operações de Segurança da Informação**, permitindo que o analista interaja com as capacidades da plataforma por meio de perguntas em linguagem natural.
+
+O objetivo do Web Chat é transformar dados técnicos de segurança em uma experiência operacional mais rápida e acessível. Em vez de exigir que o analista navegue manualmente por diferentes fontes para obter contexto, a interface atua como uma camada de interação com o backend do SOC CORE e suas integrações autorizadas.
+
+Entre os casos de uso previstos estão:
+
+- consultar e compreender incidentes e alertas de segurança;
+- solicitar contexto sobre vulnerabilidades, CVEs e indicadores de comprometimento (IOCs);
+- identificar ativos afetados e evidências relevantes disponíveis no SOC CORE;
+- receber resumos objetivos, impacto e ações recomendadas de investigação ou remediação;
+- correlacionar informações provenientes das integrações de segurança disponíveis;
+- consultar detalhes de incidentes provenientes de plataformas XDR integradas, incluindo referência ao incidente na plataforma de origem quando disponível;
+- apoiar o analista durante triagem, investigação e resposta a incidentes.
+
+A **SOC CORE IA é especializada em Segurança da Informação**. A interface foi concebida para apoiar atividades operacionais do SOC e de Gestão de Vulnerabilidades, mantendo o foco em investigação, entendimento técnico, priorização e remediação.
+
+O Web Chat **não substitui as plataformas de segurança integradas nem a decisão do analista**. Ele funciona como uma camada de consulta e assistência sobre os dados que o SOC CORE está autorizado a processar.
+
+> A documentação pública descreve apenas o comportamento funcional da interface. Código de produção, URLs internas, credenciais, tokens, identificadores de ambiente, dados reais de incidentes e detalhes sensíveis do backend não são publicados.
+
+---
+
 ## Princípios de Projeto
 
 - Integração em primeiro lugar
