@@ -56,6 +56,23 @@ When no dedicated vulnerability scanning solution is available, **SOC CORE also 
 
 This means vulnerability management can operate as either an **integrated external capability or a native SOC CORE capability**, depending on the organization's infrastructure and existing security stack.
 
+
+### Network Exposure & Port Scanning
+
+SOC CORE also supports **network exposure assessment through Nmap-based port scanning** as part of its security visibility capabilities.
+
+This capability can be used to identify:
+
+- open TCP/UDP ports on authorized assets;
+- network services exposed by hosts;
+- potential unnecessary or unexpected service exposure;
+- information that can support asset validation and vulnerability analysis;
+- network exposure context for security investigation and remediation workflows.
+
+Port scanning results can complement vulnerability management by helping analysts understand **which services are reachable and potentially exposed**, providing additional context for prioritization and remediation.
+
+> Port scanning is intended exclusively for assets and environments where the organization has authorization to perform security assessments. SOC CORE's public documentation does not expose production targets, internal addresses, scanning commands or operational configurations.
+
 ---
 
 ## Conceptual Architecture
