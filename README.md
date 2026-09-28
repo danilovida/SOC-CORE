@@ -101,6 +101,30 @@ The public architecture is intentionally conceptual. Production topology, creden
 
 ---
 
+### Web Chat / SOC CORE AI
+
+**SOC CORE includes a Web Chat interface designed specifically for cybersecurity operations**, allowing analysts to interact with the platform's capabilities using natural language.
+
+The Web Chat provides a direct operational interface to SOC CORE's backend and authorized security integrations. Its purpose is to make technical security data easier and faster to consume during investigation, triage and remediation workflows.
+
+Supported use cases include:
+
+- querying and understanding security incidents and alerts;
+- requesting context about vulnerabilities, CVEs and Indicators of Compromise (IOCs);
+- identifying affected assets and relevant evidence available to SOC CORE;
+- receiving concise summaries, impact context and recommended investigation or remediation actions;
+- correlating information from the security integrations available to the platform;
+- retrieving details from incidents provided by integrated XDR platforms, including a reference to the original incident when available;
+- assisting analysts during triage, investigation and incident response.
+
+**SOC CORE AI is specialized in cybersecurity operations.** The interface is designed to support SOC and Vulnerability Management activities, with a focus on investigation, technical understanding, prioritization and remediation.
+
+The Web Chat **does not replace integrated security platforms or analyst decision-making**. It acts as an interaction and assistance layer over the security data SOC CORE is authorized to process.
+
+> Public documentation describes only the functional behavior of this capability. Production code, internal URLs, credentials, tokens, environment identifiers, real incident data and sensitive backend implementation details are not published.
+
+---
+
 ## Design Principles
 
 **Integration First**  
