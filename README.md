@@ -56,6 +56,29 @@ When no dedicated vulnerability scanning solution is available, **SOC CORE also 
 
 This means vulnerability management can operate as either an **integrated external capability or a native SOC CORE capability**, depending on the organization's infrastructure and existing security stack.
 
+### Asset Inventory Management
+
+**SOC CORE includes an integrated Asset Inventory Management capability** designed to consolidate security-relevant asset visibility from multiple authorized data sources into a unified operational view.
+
+The inventory can combine information from endpoint/security platforms and network discovery capabilities, correlating observations to reduce duplicate records and preserve the source of each piece of evidence.
+
+Available capabilities include:
+
+- multi-source asset discovery and inventory consolidation;
+- correlation of device identities across supported integrations;
+- classification of endpoints, servers, network infrastructure, security appliances, printers, cameras, voice devices and other observed asset types;
+- operational inventory views based on recent asset activity;
+- visibility into hostname, IP address, MAC address, operating system, manufacturer and exposed services when available from the source;
+- source provenance showing whether an asset was observed by one or multiple integrations;
+- search and filtering by asset type and source;
+- per-asset detail views with recent observations and identifiers;
+- CSV export for operational reporting and audit support;
+- identification of unknown or insufficiently classified assets for analyst review.
+
+The asset inventory follows SOC CORE's integration-first architecture. Existing technologies can remain the authoritative source for their own data while SOC CORE acts as a **correlation, normalization and operational visibility layer** across them.
+
+> Public documentation describes only the functional capability and conceptual behavior of Asset Inventory Management. Production asset lists, internal addresses, hostnames, device identifiers, correlation rules and operational configurations are not published.
+
 ### Cloud Security / CASB
 
 **SOC CORE includes an integrated CASB (Cloud Access Security Broker) capability** focused on discovering, providing visibility into and governing the use of cloud applications and services across corporate environments.
@@ -272,6 +295,8 @@ SOC CORE explores security engineering across:
 - Threat intelligence
 - IOC enrichment
 - Vulnerability management and integrated scanning
+- Asset inventory management
+- Multi-source asset discovery and correlation
 - Cloud Security / CASB
 - Cloud Discovery and Shadow IT
 - Cloud application governance
