@@ -56,6 +56,28 @@ When no dedicated vulnerability scanning solution is available, **SOC CORE also 
 
 This means vulnerability management can operate as either an **integrated external capability or a native SOC CORE capability**, depending on the organization's infrastructure and existing security stack.
 
+### Cloud Security / CASB
+
+**SOC CORE includes an integrated CASB (Cloud Access Security Broker) capability** focused on discovering, providing visibility into and governing the use of cloud applications and services across corporate environments.
+
+The Cloud Security capability can consume telemetry from security integrations already available in the environment to identify applications used by users and devices, normalize that information and incorporate it into SOC CORE's operational security context.
+
+Available capabilities include:
+
+- **Cloud Discovery** to identify cloud applications and services observed in the environment;
+- **Shadow IT** visibility for applications that are not yet reviewed, authorized or governed by the organization;
+- application classification and categorization based on observed usage context;
+- visibility into users, assets and event volume associated with discovered applications;
+- risk assessment and prioritization for applications requiring review;
+- governance workflows for **unreviewed, sanctioned, unsanctioned, blocked or organization-approved applications**;
+- maintenance of a corporate approved-application list based on the organization's own decisions;
+- separation between CASB-relevant applications and purely technical network, infrastructure or protocol telemetry;
+- time-based audit views to support recurring reviews of cloud application usage.
+
+The CASB capability follows the same SOC CORE integration principle: **governance decisions remain under human and organizational control**. The platform identifies, classifies, contextualizes and presents applications for review without replacing the company's formal approval process.
+
+> Public documentation describes only the functional capability and conceptual architecture of CASB. Internal rules, production integrations, corporate application lists, users, addressing, credentials and operational configurations are not published.
+
 
 ### Network Exposure & Port Scanning
 
@@ -250,6 +272,9 @@ SOC CORE explores security engineering across:
 - Threat intelligence
 - IOC enrichment
 - Vulnerability management and integrated scanning
+- Cloud Security / CASB
+- Cloud Discovery and Shadow IT
+- Cloud application governance
 - Identity security
 - Security automation
 - Incident orchestration
