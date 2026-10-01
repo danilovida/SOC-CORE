@@ -38,6 +38,29 @@ Quando a organização não dispõe de uma solução dedicada de scanning, o **S
 
 Dessa forma, a Gestão de Vulnerabilidades pode funcionar tanto como uma **capacidade externa integrada quanto como uma capacidade nativa do SOC CORE**, de acordo com a infraestrutura e o ecossistema de segurança da empresa.
 
+### Gestão de Inventário de Ativos
+
+O **SOC CORE possui capacidade integrada de Gestão de Inventário de Ativos**, criada para consolidar a visibilidade de ativos relevantes para Segurança da Informação a partir de múltiplas fontes autorizadas em uma única visão operacional.
+
+O inventário pode combinar informações provenientes de plataformas de endpoint/segurança e mecanismos de descoberta de rede, correlacionando observações para reduzir duplicidades e preservar a origem de cada evidência.
+
+Entre as capacidades disponíveis estão:
+
+- descoberta e consolidação de ativos a partir de múltiplas fontes;
+- correlação de identidades de dispositivos entre integrações suportadas;
+- classificação de endpoints, servidores, infraestrutura de rede, appliances de segurança, impressoras, câmeras, dispositivos de voz e outros tipos observados;
+- visão operacional baseada na atividade recente dos ativos;
+- visibilidade de hostname, endereço IP, MAC, sistema operacional, fabricante e serviços expostos quando disponibilizados pela fonte;
+- identificação da origem das informações, permitindo visualizar ativos observados por uma ou mais integrações;
+- pesquisa e filtros por tipo de ativo e fonte;
+- visão detalhada por ativo, incluindo identificadores e observações recentes;
+- exportação em CSV para apoio operacional, relatórios e auditorias;
+- identificação de ativos desconhecidos ou com classificação insuficiente para revisão do analista.
+
+A Gestão de Inventário segue a arquitetura integration-first do SOC CORE. As tecnologias existentes podem continuar sendo a fonte autoritativa de seus próprios dados enquanto o SOC CORE atua como uma **camada de correlação, normalização e visibilidade operacional** entre elas.
+
+> A documentação pública descreve somente a capacidade funcional e o comportamento conceitual da Gestão de Inventário. Listas reais de ativos, endereços internos, hostnames, identificadores de dispositivos, regras de correlação e configurações operacionais não são publicados.
+
 ### Cloud Security / CASB
 
 O **SOC CORE possui capacidade CASB (Cloud Access Security Broker) integrada**, voltada à descoberta, visibilidade e governança do uso de aplicações e serviços em nuvem dentro do ambiente corporativo.
@@ -129,6 +152,8 @@ O SOC CORE explora temas como:
 - Threat Intelligence
 - Enriquecimento de IOC
 - Gestão de Vulnerabilidades e scanning integrado
+- Gestão de Inventário de Ativos
+- Descoberta e correlação multi-source de ativos
 - Cloud Security / CASB
 - Cloud Discovery e Shadow IT
 - Governança de aplicações em nuvem
