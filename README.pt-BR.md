@@ -38,6 +38,28 @@ Quando a organização não dispõe de uma solução dedicada de scanning, o **S
 
 Dessa forma, a Gestão de Vulnerabilidades pode funcionar tanto como uma **capacidade externa integrada quanto como uma capacidade nativa do SOC CORE**, de acordo com a infraestrutura e o ecossistema de segurança da empresa.
 
+### Cloud Security / CASB
+
+O **SOC CORE possui capacidade CASB (Cloud Access Security Broker) integrada**, voltada à descoberta, visibilidade e governança do uso de aplicações e serviços em nuvem dentro do ambiente corporativo.
+
+A capacidade de Cloud Security pode utilizar telemetria proveniente das integrações já disponíveis no ecossistema de segurança para identificar aplicações utilizadas por usuários e dispositivos, normalizar essas informações e incorporá-las ao contexto operacional do SOC CORE.
+
+Entre as capacidades disponíveis estão:
+
+- **Cloud Discovery**, para identificar aplicações e serviços em nuvem observados no ambiente;
+- **Shadow IT**, para destacar aplicações ainda não revisadas, não autorizadas ou fora da governança definida pela organização;
+- classificação e categorização de aplicações por contexto de uso;
+- acompanhamento de usuários, ativos e volume de eventos relacionados às aplicações identificadas;
+- avaliação de risco e priorização de aplicações que exigem análise;
+- fluxo de governança para aplicações **não revisadas, permitidas, não autorizadas, bloqueadas ou homologadas**;
+- manutenção de uma lista corporativa de aplicações homologadas, conforme decisão da própria organização;
+- separação entre aplicações relevantes para governança CASB e telemetria puramente técnica de rede, infraestrutura ou protocolos;
+- visão de auditoria por período para apoiar revisões recorrentes do uso de aplicações em nuvem.
+
+A arquitetura do CASB segue o mesmo princípio de integração do SOC CORE: **as decisões de governança permanecem sob controle humano e organizacional**. A plataforma identifica, classifica, contextualiza e apresenta as aplicações para revisão, sem substituir a aprovação formal da empresa.
+
+> A documentação pública apresenta somente a capacidade funcional e a arquitetura conceitual do CASB. Regras internas, integrações de produção, listas corporativas, usuários, endereçamento, credenciais e configurações operacionais não são publicados.
+
 ---
 
 ### Web Chat / SOC CORE IA
@@ -107,6 +129,9 @@ O SOC CORE explora temas como:
 - Threat Intelligence
 - Enriquecimento de IOC
 - Gestão de Vulnerabilidades e scanning integrado
+- Cloud Security / CASB
+- Cloud Discovery e Shadow IT
+- Governança de aplicações em nuvem
 - Segurança de identidade
 - Automação e orquestração
 - Análise assistida por IA
