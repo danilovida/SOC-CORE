@@ -6,6 +6,12 @@ All notable changes to the public SOC CORE documentation project will be documen
 
 ### Added
 
+- Integrated **Asset Inventory Management** capability documented as part of SOC CORE.
+- Multi-source asset discovery, normalization and correlation for unified operational visibility.
+- Asset classification across endpoints, servers, network infrastructure, security appliances, IoT and other observed device types.
+- Source provenance and per-asset visibility with identifiers, recent observations and technical context when available.
+- Search, filtering and CSV export for operational reporting and audit support.
+- Identification of unknown or insufficiently classified assets for analyst review.
 - Integrated **Cloud Security / CASB** capability documented as part of SOC CORE.
 - Cloud Discovery for identifying cloud applications and services observed in the environment.
 - Shadow IT visibility and application-governance workflows.
@@ -15,6 +21,7 @@ All notable changes to the public SOC CORE documentation project will be documen
 
 ### Security
 
+- Asset Inventory public documentation remains conceptual and does not expose production asset lists, internal IP addresses, hostnames, device identifiers, correlation rules or operational configurations.
 - CASB public documentation remains conceptual and does not expose production rules, credentials, corporate allowlists, users, internal addressing or operational integration details.
 
 ## 2026-09-26
