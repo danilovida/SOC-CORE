@@ -2,6 +2,26 @@
 
 All notable changes to the public SOC CORE documentation project will be documented here.
 
+## 2026-10-06
+
+### Added
+
+- Public documentation for the integrated **Network Detection & Prevention (IDS/IPS)** capability.
+- IDS-mode coverage for passive network detection, visibility and alerting.
+- IPS-mode coverage for preventive controls where architecture, supported integrations and organizational policy allow safe enforcement.
+- Correlation of network detections with asset, identity, vulnerability and threat intelligence context.
+- Brazilian Portuguese documentation for **Network Exposure & Port Scanning**, aligning capability coverage between the English and Portuguese READMEs.
+- Public roadmap coverage for Asset Inventory Management, Cloud Security / CASB, network exposure scanning and IDS/IPS.
+
+### Reviewed
+
+- Confirmed that **Asset Inventory Management** is already documented in both English and Brazilian Portuguese.
+- Confirmed that **Cloud Security / CASB**, including Cloud Discovery, Shadow IT and organization-controlled governance, is already documented in both languages.
+
+### Security
+
+- IDS/IPS documentation remains conceptual and does not expose production signatures, prevention rules, internal topology, addresses, sensor placement or operational configurations.
+
 ## 2026-10-01
 
 ### Added
