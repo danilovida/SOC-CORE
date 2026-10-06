@@ -24,6 +24,21 @@ This roadmap describes public engineering directions and intentionally avoids in
 - [ ] Document entity-centric correlation
 - [ ] Publish confidence and severity design notes
 
+## Asset & Cloud Security
+
+- [x] Document multi-source Asset Inventory Management
+- [x] Document Cloud Security / CASB
+- [x] Document Cloud Discovery and Shadow IT governance concepts
+- [ ] Publish sanitized asset-correlation examples
+- [ ] Publish sanitized cloud-application governance examples
+
+## Network Defense
+
+- [x] Document authorized network exposure and port scanning
+- [x] Document IDS/IPS capability at a public conceptual level
+- [ ] Publish sanitized network-detection examples
+- [ ] Document safe prevention-policy, enforcement and rollback concepts
+
 ## Threat Intelligence
 
 - [ ] Document IOC enrichment architecture
