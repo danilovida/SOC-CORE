@@ -118,6 +118,25 @@ Port scanning results can complement vulnerability management by helping analyst
 
 > Port scanning is intended exclusively for assets and environments where the organization has authorization to perform security assessments. SOC CORE's public documentation does not expose production targets, internal addresses, scanning commands or operational configurations.
 
+### Network Detection & Prevention (IDS/IPS)
+
+**SOC CORE includes a modular Network Detection and Prevention capability (IDS/IPS)** designed to analyze authorized network telemetry and incorporate network detections into the same operational context used by the rest of the platform.
+
+Available capabilities include:
+
+- network traffic monitoring and analysis from supported sensors and integrations;
+- detection of suspicious or malicious patterns using rules, signatures and contextual logic;
+- normalization of network alerts for correlation with asset, identity, vulnerability and threat intelligence context;
+- **IDS mode** for passive detection, visibility and alerting;
+- **IPS mode** for preventive controls when the network architecture, integration method and organizational policy allow safe enforcement;
+- prioritization of network detections using asset criticality, exposure and other security context available to SOC CORE;
+- integration of network detections with incident investigation, automation and analyst workflows;
+- auditable, organization-controlled prevention policies with human oversight for consequential actions.
+
+IDS/IPS follows SOC CORE's integration-first approach and can operate as a native or integrated network-defense capability depending on the organization's environment.
+
+> Prevention capabilities depend on sensor placement, network architecture, supported integration mechanisms and the organization's security policy. Public documentation does not expose production rules, signatures, internal topology, addresses, prevention policies or operational configurations.
+
 ---
 
 ## Conceptual Architecture
@@ -300,6 +319,9 @@ SOC CORE explores security engineering across:
 - Cloud Security / CASB
 - Cloud Discovery and Shadow IT
 - Cloud application governance
+- Network exposure and port scanning
+- Network Detection & Prevention (IDS/IPS)
+- Network traffic analysis and security monitoring
 - Identity security
 - Security automation
 - Incident orchestration
