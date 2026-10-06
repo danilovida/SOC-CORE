@@ -83,6 +83,41 @@ A arquitetura do CASB segue o mesmo princípio de integração do SOC CORE: **as
 
 > A documentação pública apresenta somente a capacidade funcional e a arquitetura conceitual do CASB. Regras internas, integrações de produção, listas corporativas, usuários, endereçamento, credenciais e configurações operacionais não são publicados.
 
+### Exposição de Rede e Varredura de Portas
+
+O SOC CORE também oferece **avaliação de exposição de rede por meio de varredura de portas** como parte de suas capacidades de visibilidade de segurança.
+
+Essa capacidade pode ser utilizada para identificar:
+
+- portas TCP/UDP abertas em ativos autorizados;
+- serviços de rede expostos pelos hosts;
+- exposições de serviços potencialmente desnecessárias ou inesperadas;
+- informações que apoiem a validação de ativos e a análise de vulnerabilidades;
+- contexto de exposição de rede para investigação de segurança e fluxos de remediação.
+
+Os resultados da varredura de portas complementam a Gestão de Vulnerabilidades ao ajudar o analista a entender **quais serviços estão acessíveis e potencialmente expostos**, adicionando contexto para priorização e remediação.
+
+> A varredura de portas é destinada exclusivamente a ativos e ambientes nos quais a organização possui autorização para realizar avaliações de segurança. A documentação pública do SOC CORE não expõe alvos de produção, endereços internos, comandos de varredura ou configurações operacionais.
+
+### Detecção e Prevenção de Intrusão (IDS/IPS)
+
+O **SOC CORE possui uma capacidade modular de Detecção e Prevenção de Intrusão (IDS/IPS)** criada para analisar telemetria de rede autorizada e incorporar detecções de rede ao mesmo contexto operacional utilizado pelos demais módulos da plataforma.
+
+Entre as capacidades disponíveis estão:
+
+- monitoramento e análise de tráfego de rede a partir de sensores e integrações suportadas;
+- detecção de padrões suspeitos ou maliciosos por meio de regras, assinaturas e lógica contextual;
+- normalização de alertas de rede para correlação com contexto de ativos, identidade, vulnerabilidades e inteligência de ameaças;
+- **modo IDS** para detecção passiva, visibilidade e geração de alertas;
+- **modo IPS** para controles preventivos quando a arquitetura de rede, o método de integração e a política da organização permitirem aplicação segura;
+- priorização das detecções de rede utilizando criticidade do ativo, exposição e demais contextos de segurança disponíveis no SOC CORE;
+- integração das detecções com investigação de incidentes, automação e fluxos operacionais do analista;
+- políticas de prevenção auditáveis e controladas pela organização, com supervisão humana para ações de maior impacto.
+
+O IDS/IPS segue a abordagem integration-first do SOC CORE e pode operar como uma capacidade nativa ou integrada de defesa de rede, conforme o ambiente da organização.
+
+> As capacidades de prevenção dependem do posicionamento dos sensores, arquitetura de rede, mecanismos de integração suportados e política de segurança da organização. A documentação pública não expõe regras de produção, assinaturas, topologia interna, endereçamento, políticas de bloqueio ou configurações operacionais.
+
 ---
 
 ### Web Chat / SOC CORE IA
@@ -157,6 +192,9 @@ O SOC CORE explora temas como:
 - Cloud Security / CASB
 - Cloud Discovery e Shadow IT
 - Governança de aplicações em nuvem
+- Exposição de rede e varredura de portas
+- Detecção e Prevenção de Intrusão (IDS/IPS)
+- Análise de tráfego e monitoramento de segurança de rede
 - Segurança de identidade
 - Automação e orquestração
 - Análise assistida por IA
