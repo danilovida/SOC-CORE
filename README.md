@@ -165,6 +165,26 @@ The public architecture is intentionally conceptual. Production topology, creden
 
 ---
 
+### Risk Intelligence — Vulnerability Prioritization
+
+**SOC CORE includes a Risk Intelligence capability** that consolidates vulnerability findings from supported scanning and endpoint security integrations into a unified view for risk-based triage.
+
+Its operational capabilities include:
+
+- correlating vulnerability identifiers (CVEs) across supported sources while retaining evidence provenance;
+- enriching findings with **CVSS**, **FIRST EPSS** exploitation likelihood scores and the **CISA Known Exploited Vulnerabilities (KEV)** catalog;
+- applying explainable **P1–P4 triage priorities**, with analyst validation required before remediation decisions;
+- associating CVEs with affected assets when the source provides reliable device references, including multiple devices per finding;
+- an interactive dashboard with filtering by source, priority, CVE and known-exploitation status;
+- scheduled, recoverable enrichment and dashboard refresh workflows, using cached results and validation of incoming reports;
+- **SOC CORE AI chat integration** for read-only, evidence-based natural-language questions about priority findings, affected assets and prioritization rationale.
+
+Risk Intelligence operates as an analysis and prioritization layer, not as proof of exploitation or automatic confirmation that a CVE applies to a particular system. EPSS is a statistical estimate, not an asset-specific attack probability. Results remain subject to source freshness, detection quality, data completeness and analyst review.
+
+> **Public disclosure:** Only the capability and conceptual workflow are documented here. Production findings, device identities, hostnames, internal addresses, vulnerability counts, schedules, API credentials, operational routes and environment-specific configurations are intentionally excluded.
+
+---
+
 ### Web Chat / SOC CORE AI
 
 **SOC CORE includes a Web Chat interface designed specifically for cybersecurity operations**, allowing analysts to interact with the platform's capabilities using natural language.
