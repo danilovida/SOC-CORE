@@ -120,6 +120,26 @@ O IDS/IPS segue a abordagem integration-first do SOC CORE e pode operar como uma
 
 ---
 
+### Risk Intelligence — Priorização de Vulnerabilidades
+
+O **SOC CORE possui uma capacidade de Risk Intelligence** que consolida achados de vulnerabilidades provenientes de ferramentas de varredura e plataformas de segurança de endpoints integradas, oferecendo uma visão unificada para triagem baseada em risco.
+
+Entre as funcionalidades estão:
+
+- correlação de identificadores de vulnerabilidades (**CVEs**) entre fontes suportadas, preservando a origem das evidências;
+- enriquecimento com **CVSS**, pontuações **FIRST EPSS** e catálogo **CISA Known Exploited Vulnerabilities (KEV)**;
+- classificação explicável em **prioridades P1–P4**, com validação do analista antes de decisões de remediação;
+- associação entre CVEs e ativos afetados quando a fonte disponibiliza referências confiáveis dos dispositivos, inclusive múltiplos ativos por vulnerabilidade;
+- dashboard interativo com filtros por fonte, prioridade, CVE e presença no catálogo de exploração conhecida;
+- rotinas agendadas de enriquecimento e atualização do painel, com cache, recuperação de execução e validação dos relatórios de origem;
+- integração com o **chat da SOC CORE IA** para consultas em linguagem natural, somente leitura e fundamentadas nas evidências sobre prioridades, ativos afetados e justificativas de classificação.
+
+O Risk Intelligence atua como camada de análise e priorização. Os resultados **não comprovam exploração nem confirmam automaticamente a aplicabilidade de uma CVE** a determinado equipamento. O EPSS representa uma estimativa estatística, não a probabilidade individual de ataque a um ativo. As conclusões dependem da atualização das fontes, qualidade dos achados, completude dos dados e revisão humana.
+
+> **Divulgação pública:** Esta documentação descreve somente funcionalidades e fluxo conceitual. Achados reais, identidade dos dispositivos, hostnames, endereços internos, volumes de vulnerabilidades, horários de execução, credenciais, rotas operacionais e configurações específicas do ambiente não são divulgados.
+
+---
+
 ### Web Chat / SOC CORE IA
 
 O **SOC CORE possui uma interface Web Chat voltada às operações de Segurança da Informação**, permitindo que o analista interaja com as capacidades da plataforma por meio de perguntas em linguagem natural.
