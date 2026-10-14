@@ -120,6 +120,36 @@ O IDS/IPS segue a abordagem integration-first do SOC CORE e pode operar como uma
 
 ---
 
+### Active Response — Contenção Automatizada de Ameaças
+
+O SOC CORE possui a capacidade **Active Response**, conectando detecção de intrusão na rede, validação por inteligência de ameaças e aplicação de controles de proteção nos endpoints por meio de um fluxo auditável.
+
+**Fluxo operacional:**
+
+```mermaid
+flowchart LR
+    IDS[Detecção IDS/IPS] --> TI[Consulta de reputação AbuseIPDB]
+    TI --> POLICY{Reputação e verificações da política}
+    POLICY -->|100/100 + relatos recentes + IP elegível| MDE[Microsoft Defender for Endpoint: indicador Block]
+    POLICY -->|Não atende aos critérios| MON[Monitorar e preservar evidências]
+    MDE --> AUDIT[Registrar resultado e referência do indicador]
+```
+
+- As detecções de rede são enriquecidas pela **API do AbuseIPDB**.
+- A política atual de bloqueio automático exige **100/100 de confiança no AbuseIPDB**, relatos recentes de abuso e atendimento às verificações de segurança configuradas. A pontuação não comprova invasão ou comprometimento.
+- IPs públicos elegíveis são enviados ao **Microsoft Defender for Endpoint** como indicadores de IP com ação **Block**, sujeitos às permissões, funcionalidades e propagação de políticas da plataforma.
+- **Novos indicadores expiram após 14 dias** segundo a política atual. Indicadores anteriores preservam sua expiração, salvo alteração individual.
+- O módulo verifica indicadores de bloqueio já existentes e ações conflitantes antes da criação; endereços privados/não públicos são excluídos, e há suporte a lista de exceções.
+- Decisões, referências dos indicadores e respostas da API são registradas para auditoria.
+- Um teste real de integração criou com sucesso um indicador de bloqueio no Defender; o processamento automático de novos eventos do sensor segue sujeito à validação operacional contínua.
+- Os indicadores do Defender representam **proteção nos endpoints**, e não comprovação de bloqueio de conexões de entrada no perímetro da rede.
+
+**Planejado:** Chamados diários consolidados no sistema de gestão de incidentes e fluxo de aprovação humana para casos duvidosos. Essas funcionalidades de chamados **ainda não estão implementadas** no Active Response.
+
+> **Nota de segurança pública:** Não são divulgados IPs de produção, identidades, dados do tenant, credenciais, regras exatas de detecção ou caminhos privados de implantação. Bloqueios automáticos exigem autorização da organização e manutenção criteriosa das exceções.
+
+---
+
 ### Risk Intelligence — Priorização de Vulnerabilidades
 
 O **SOC CORE possui uma capacidade de Risk Intelligence** que consolida achados de vulnerabilidades provenientes de ferramentas de varredura e plataformas de segurança de endpoints integradas, oferecendo uma visão unificada para triagem baseada em risco.
