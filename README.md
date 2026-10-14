@@ -139,6 +139,36 @@ IDS/IPS follows SOC CORE's integration-first approach and can operate as a nativ
 
 ---
 
+### Active Response — Automated Threat Containment
+
+SOC CORE includes an **Active Response** capability that connects network intrusion detection, threat intelligence validation and endpoint security enforcement through an auditable workflow.
+
+**Operational flow:**
+
+```mermaid
+flowchart LR
+    IDS[IDS/IPS detection] --> TI[AbuseIPDB reputation check]
+    TI --> POLICY{Reputation and policy checks}
+    POLICY -->|100/100 + recent reports + eligible IP| MDE[Microsoft Defender for Endpoint: Block indicator]
+    POLICY -->|Does not qualify| MON[Monitor and retain evidence]
+    MDE --> AUDIT[Record outcome and indicator reference]
+```
+
+- Network detections are enriched using **AbuseIPDB API** reputation data.
+- The current automated-block policy requires **100/100 AbuseIPDB confidence**, recent abuse reports and satisfaction of the configured safety checks. A score is an intelligence signal, not proof of a successful compromise.
+- Qualifying public IP addresses are submitted to **Microsoft Defender for Endpoint** as IP indicators with the **Block** action, subject to platform capabilities, permissions and policy propagation.
+- **New indicators expire after 14 days** under the current policy. Previously created indicators retain their existing expiration unless separately changed.
+- Duplicate blocking indicators and conflicting existing indicator actions are checked before submission; private/non-public addresses are excluded, and allowlist support is available.
+- Decisions, indicator references and API outcomes are written to an audit trail.
+- A real-world API test successfully created a Defender block indicator; automatic processing of subsequent sensor detections remains subject to continued operational validation.
+- The Defender indicator mechanism is **endpoint enforcement**, not proof that an inbound connection was blocked at the network perimeter.
+
+**Planned:** Daily consolidated incident-management tickets and a human approval path for ambiguous cases. These ticket workflows are **not yet implemented** in Active Response.
+
+> **Public security note:** This section intentionally excludes production IP addresses, identities, tenant details, credentials, exact detection rules and private deployment paths. Automatic blocking requires organizational authorization and carefully maintained exclusions.
+
+---
+
 ## Conceptual Architecture
 
 ```mermaid
