@@ -259,3 +259,11 @@ O SOC CORE explora temas como:
 Cybersecurity | Security Engineering | Security Operations | Vulnerability Management
 
 GitHub: [@danilovida](https://github.com/danilovida)
+
+---
+
+## Engenharia de Investigação SOAR — V1–V9
+
+O SOC CORE validou investigação consultiva, extração de evidências, correlação histórica e processamento controlado em lote. O hook V9 de investigação complementar após a abertura existente de chamados está instalado e validado estruturalmente; o primeiro acionamento elegível em produção **ainda depende de comprovação**. A investigação periódica V8, anteriormente testada, está **desativada** para evitar um fluxo paralelo de incidentes.
+
+Consulte a [documentação SOAR V1–V9 em português](docs/soar-investigation-v1-v9.pt-BR.md) ou a [versão em inglês](docs/soar-investigation-v1-v9.md). Código de produção, dados de clientes e configurações internas não são publicados.
