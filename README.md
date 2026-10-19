@@ -403,3 +403,11 @@ GitHub: [@danilovida](https://github.com/danilovida)
 SOC CORE is an engineering project and technical portfolio. References to third-party technologies describe potential integration patterns and do not imply endorsement, certification or affiliation with their respective vendors.
 
 All public examples are intended for educational and architectural demonstration purposes.
+
+---
+
+## SOAR Investigation Engineering — V1–V9
+
+SOC CORE has validated advisory investigation, evidence extraction, historical correlation and controlled batch processing. A post-ticket complementary investigation hook (V9) is installed and structurally validated; its first qualifying production invocation remains **pending verification**. The previously tested periodic V8 investigator is **disabled** to avoid a parallel incident workflow.
+
+Read the [SOAR V1–V9 engineering report (English)](docs/soar-investigation-v1-v9.md) or [Português (Brasil)](docs/soar-investigation-v1-v9.pt-BR.md). Production source code, customer data and internal configurations are not published.
