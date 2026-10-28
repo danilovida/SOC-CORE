@@ -226,6 +226,12 @@ Consulte [Política de Divulgação Pública](docs/PUBLIC-DISCLOSURE-POLICY.md).
 
 ---
 
+## Estudos de Caso Anonimizados
+
+- [Avaliação Externa de Exposição e Vulnerabilidades — Outubro de 2026](docs/case-studies/external-exposure-assessment.pt-BR.md) — verificação autorizada de exposição externa, qualificação de evidências e recomendações de remediação. [English](docs/case-studies/external-exposure-assessment.md).
+
+---
+
 ## Áreas de Engenharia
 
 O SOC CORE explora temas como:
