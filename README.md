@@ -353,6 +353,12 @@ Reserved documentation IP ranges, invalid example domains and fabricated identit
 
 ---
 
+## Sanitized Field Studies
+
+- [External Exposure & Vulnerability Assessment — October 2026](docs/case-studies/external-exposure-assessment.md) — authorized network exposure review, evidence validation and remediation recommendations. [Português](docs/case-studies/external-exposure-assessment.pt-BR.md).
+
+---
+
 ## Areas of Engineering
 
 SOC CORE explores security engineering across:
