@@ -143,27 +143,25 @@ IDS/IPS follows SOC CORE's integration-first approach and can operate as a nativ
 
 SOC CORE includes an **Active Response** capability that connects network intrusion detection, threat intelligence validation and endpoint security enforcement through an auditable workflow.
 
-**Operational flow:**
+**Conceptual response flow:**
 
 ```mermaid
 flowchart LR
-    IDS[IDS/IPS detection] --> TI[AbuseIPDB reputation check]
-    TI --> POLICY{Reputation and policy checks}
-    POLICY -->|100/100 + recent reports + eligible IP| MDE[Microsoft Defender for Endpoint: Block indicator]
-    POLICY -->|Does not qualify| MON[Monitor and retain evidence]
-    MDE --> AUDIT[Record outcome and indicator reference]
+    IDS[Authorized security detection] --> TI[Threat intelligence enrichment]
+    TI --> POLICY{Risk and safety policy evaluation}
+    POLICY -->|Approved action| MDE[Endpoint security control]
+    POLICY -->|Review required| MON[Analyst review and evidence retention]
+    MDE --> AUDIT[Audit record]
 ```
 
-- Network detections are enriched using **AbuseIPDB API** reputation data.
-- The current automated-block policy requires **100/100 AbuseIPDB confidence**, recent abuse reports and satisfaction of the configured safety checks. A score is an intelligence signal, not proof of a successful compromise.
-- Qualifying public IP addresses are submitted to **Microsoft Defender for Endpoint** as IP indicators with the **Block** action, subject to platform capabilities, permissions and policy propagation.
-- **New indicators expire after 14 days** under the current policy. Previously created indicators retain their existing expiration unless separately changed.
-- Duplicate blocking indicators and conflicting existing indicator actions are checked before submission; private/non-public addresses are excluded, and allowlist support is available.
-- Decisions, indicator references and API outcomes are written to an audit trail.
-- A real-world API test successfully created a Defender block indicator; automatic processing of subsequent sensor detections remains subject to continued operational validation.
-- The Defender indicator mechanism is **endpoint enforcement**, not proof that an inbound connection was blocked at the network perimeter.
+- Network detections can be enriched with external reputation and contextual threat intelligence.
+- Automated response decisions are governed by **internal risk thresholds, validation checks and exclusion controls**. Specific production criteria are intentionally not published.
+- Where supported and authorized, eligible public IP indicators can be enforced through **Microsoft Defender for Endpoint**, subject to permissions and platform policy propagation.
+- Indicator lifetime, duplicate handling, conflicting actions, private-address exclusions and allowlists are evaluated under internal response policies.
+- Decisions and action outcomes are recorded for auditability. Intelligence scores indicate risk, not proven compromise.
+- Endpoint indicator enforcement is distinct from network-perimeter filtering. Automated actions require validation and organizational authorization.
 
-**Planned:** Daily consolidated incident-management tickets and a human approval path for ambiguous cases. These ticket workflows are **not yet implemented** in Active Response.
+**Engineering direction:** Continue improving controlled incident-management integration and human review for ambiguous cases; deployment status, timing and internal implementation details are maintained privately.
 
 > **Public security note:** This section intentionally excludes production IP addresses, identities, tenant details, credentials, exact detection rules and private deployment paths. Automatic blocking requires organizational authorization and carefully maintained exclusions.
 
@@ -355,7 +353,7 @@ Reserved documentation IP ranges, invalid example domains and fabricated identit
 
 ## Sanitized Field Studies
 
-- [External Exposure & Vulnerability Assessment — October 2026](docs/case-studies/external-exposure-assessment.md) — authorized network exposure review, evidence validation and remediation recommendations. [Português](docs/case-studies/external-exposure-assessment.pt-BR.md).
+- [Anonymized external exposure assessment — draft](docs/case-studies/external-exposure-assessment.md) — authorized security engineering workflow, evidence qualification and risk reduction. [Português](docs/case-studies/external-exposure-assessment.pt-BR.md). Publication requires a prior confidentiality review.
 
 ---
 
@@ -414,6 +412,6 @@ All public examples are intended for educational and architectural demonstration
 
 ## SOAR Investigation Engineering — V1–V9
 
-SOC CORE has validated advisory investigation, evidence extraction, historical correlation and controlled batch processing. A post-ticket complementary investigation hook (V9) is installed and structurally validated; its first qualifying production invocation remains **pending verification**. The previously tested periodic V8 investigator is **disabled** to avoid a parallel incident workflow.
+SOC CORE's SOAR engineering explores advisory investigation, evidence extraction, historical correlation and controlled orchestration. Public materials describe validated engineering concepts without disclosing deployment state, timing, internal trigger conditions or configuration of operational components.
 
 Read the [SOAR V1–V9 engineering report (English)](docs/soar-investigation-v1-v9.md) or [Português (Brasil)](docs/soar-investigation-v1-v9.pt-BR.md). Production source code, customer data and internal configurations are not published.
