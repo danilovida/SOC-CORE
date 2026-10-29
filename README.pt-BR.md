@@ -124,27 +124,25 @@ O IDS/IPS segue a abordagem integration-first do SOC CORE e pode operar como uma
 
 O SOC CORE possui a capacidade **Active Response**, conectando detecção de intrusão na rede, validação por inteligência de ameaças e aplicação de controles de proteção nos endpoints por meio de um fluxo auditável.
 
-**Fluxo operacional:**
+**Fluxo conceitual de resposta:**
 
 ```mermaid
 flowchart LR
-    IDS[Detecção IDS/IPS] --> TI[Consulta de reputação AbuseIPDB]
-    TI --> POLICY{Reputação e verificações da política}
-    POLICY -->|100/100 + relatos recentes + IP elegível| MDE[Microsoft Defender for Endpoint: indicador Block]
-    POLICY -->|Não atende aos critérios| MON[Monitorar e preservar evidências]
-    MDE --> AUDIT[Registrar resultado e referência do indicador]
+    IDS[Detecção de segurança autorizada] --> TI[Enriquecimento de inteligência]
+    TI --> POLICY{Avaliação de risco e segurança}
+    POLICY -->|Ação autorizada| MDE[Controle de segurança de endpoint]
+    POLICY -->|Requer análise| MON[Revisão humana e preservação de evidências]
+    MDE --> AUDIT[Registro de auditoria]
 ```
 
-- As detecções de rede são enriquecidas pela **API do AbuseIPDB**.
-- A política atual de bloqueio automático exige **100/100 de confiança no AbuseIPDB**, relatos recentes de abuso e atendimento às verificações de segurança configuradas. A pontuação não comprova invasão ou comprometimento.
-- IPs públicos elegíveis são enviados ao **Microsoft Defender for Endpoint** como indicadores de IP com ação **Block**, sujeitos às permissões, funcionalidades e propagação de políticas da plataforma.
-- **Novos indicadores expiram após 14 dias** segundo a política atual. Indicadores anteriores preservam sua expiração, salvo alteração individual.
-- O módulo verifica indicadores de bloqueio já existentes e ações conflitantes antes da criação; endereços privados/não públicos são excluídos, e há suporte a lista de exceções.
-- Decisões, referências dos indicadores e respostas da API são registradas para auditoria.
-- Um teste real de integração criou com sucesso um indicador de bloqueio no Defender; o processamento automático de novos eventos do sensor segue sujeito à validação operacional contínua.
-- Os indicadores do Defender representam **proteção nos endpoints**, e não comprovação de bloqueio de conexões de entrada no perímetro da rede.
+- As detecções podem ser enriquecidas com reputação externa e inteligência contextual de ameaças.
+- As decisões automatizadas seguem **limiares internos de risco, validações e controles de exclusão**. Os critérios exatos de produção não são publicados.
+- Quando suportado e autorizado, indicadores de IP público podem ser aplicados pelo **Microsoft Defender for Endpoint**, respeitando permissões e propagação das políticas.
+- Prazo dos indicadores, duplicidades, ações conflitantes, exclusões de endereços privados e listas de exceção seguem políticas internas de resposta.
+- Decisões e resultados são registrados para auditoria. Pontuações de inteligência representam risco, não comprovação de comprometimento.
+- Indicadores de endpoint não equivalem a bloqueios no perímetro da rede. Ações automáticas exigem validação e autorização organizacional.
 
-**Planejado:** Chamados diários consolidados no sistema de gestão de incidentes e fluxo de aprovação humana para casos duvidosos. Essas funcionalidades de chamados **ainda não estão implementadas** no Active Response.
+**Evolução de engenharia:** aprimoramento contínuo da integração controlada com gestão de incidentes e análise humana em situações ambíguas; estado de implantação, horários e detalhes internos permanecem privados.
 
 > **Nota de segurança pública:** Não são divulgados IPs de produção, identidades, dados do tenant, credenciais, regras exatas de detecção ou caminhos privados de implantação. Bloqueios automáticos exigem autorização da organização e manutenção criteriosa das exceções.
 
@@ -228,7 +226,7 @@ Consulte [Política de Divulgação Pública](docs/PUBLIC-DISCLOSURE-POLICY.md).
 
 ## Estudos de Caso Anonimizados
 
-- [Avaliação Externa de Exposição e Vulnerabilidades — Outubro de 2026](docs/case-studies/external-exposure-assessment.pt-BR.md) — verificação autorizada de exposição externa, qualificação de evidências e recomendações de remediação. [English](docs/case-studies/external-exposure-assessment.md).
+- [Avaliação externa de exposição — rascunho](docs/case-studies/external-exposure-assessment.pt-BR.md) — fluxo autorizado de engenharia de segurança, qualificação de evidências e redução de riscos. [English](docs/case-studies/external-exposure-assessment.md). A publicação depende de revisão prévia de confidencialidade.
 
 ---
 
@@ -270,6 +268,6 @@ GitHub: [@danilovida](https://github.com/danilovida)
 
 ## Engenharia de Investigação SOAR — V1–V9
 
-O SOC CORE validou investigação consultiva, extração de evidências, correlação histórica e processamento controlado em lote. O hook V9 de investigação complementar após a abertura existente de chamados está instalado e validado estruturalmente; o primeiro acionamento elegível em produção **ainda depende de comprovação**. A investigação periódica V8, anteriormente testada, está **desativada** para evitar um fluxo paralelo de incidentes.
+A engenharia SOAR do SOC CORE explora investigação consultiva, extração de evidências, correlação histórica e orquestração controlada. Os materiais públicos descrevem conceitos técnicos validados sem divulgar o estado de implantação, periodicidade, condições internas de acionamento ou configurações dos componentes operacionais.
 
 Consulte a [documentação SOAR V1–V9 em português](docs/soar-investigation-v1-v9.pt-BR.md) ou a [versão em inglês](docs/soar-investigation-v1-v9.md). Código de produção, dados de clientes e configurações internas não são publicados.
