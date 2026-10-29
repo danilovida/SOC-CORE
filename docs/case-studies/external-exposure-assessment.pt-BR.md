@@ -1,6 +1,6 @@
 # Estudo de caso | Avaliação externa de exposição e vulnerabilidades
 
-**SOC CORE · Engenharia de Segurança · Outubro de 2026**
+**SOC CORE · Engenharia de Segurança · Estudo de caso anonimizado**
 
 > **Estudo de caso anonimizado.** Esta publicação descreve lições de uma avaliação externa autorizada, em nível de categorias de risco. Não contém nome do ambiente avaliado, domínios, endereços IP, URLs, hostnames, portas específicas, versões, capturas de tela, volumes de ativos, evidências brutas ou dados de clientes.
 
@@ -22,8 +22,8 @@ O trabalho ilustra um **fluxo de engenharia de segurança associado ao SOC CORE*
 
 | Área | Situação da evidência | Oportunidade de melhoria |
 |---|---|---|
-| Serviços de dados acessíveis pela internet | **Observado em verificação não intrusiva:** serviço identificável e alcançável externamente; nenhum acesso autenticado foi testado. | Revisar necessidade de exposição pública; restringir acesso por controles de rede, segmentação e canais privados; auditar autenticação e atualização em ambiente autorizado. |
-| Autenticação de e-mail (SPF) | **Reproduzido em validação de DNS:** uma condição de avaliação excedeu o limite de consultas do SPF, causando erro de processamento. | Simplificar e revisar mecanismos de SPF, remover redundâncias, revalidar os fluxos de envio legítimos e monitorar autenticação de mensagens. |
+| Exposição de serviços na internet | **Confirmado em verificações autorizadas e não intrusivas:** uma exposição exigiu análise complementar; detalhes de implementação e identificação foram omitidos. | Revisar a necessidade de exposição pública; adotar restrições de rede, segmentação e controles autorizados de acesso. |
+| Higiene das políticas de autenticação de e-mail | **Confirmado por verificações autorizadas de DNS:** a complexidade da política exigiu revisão; a configuração e os resultados exatos foram omitidos. | Simplificar dependências, validar remetentes autorizados e monitorar resultados de autenticação. |
 | HTTPS e cabeçalhos de segurança | **Sinais de ferramenta externa; confirmação adicional necessária.** | Validar redirecionamento HTTPS, HSTS, CSP e cabeçalhos de proteção; ajustar com testes de compatibilidade. |
 | TLS e certificados digitais | **Sinais de ferramenta externa; confirmação adicional necessária.** | Revisar protocolos e cifras permitidos, validade dos certificados e política de renovação. |
 | Integridade de recursos web e exposição de informações | **Sinais de ferramenta externa; confirmação adicional necessária.** | Revisar SRI, tratamento de erros, logs visíveis em páginas e informações técnicas desnecessariamente expostas. |
@@ -44,7 +44,7 @@ flowchart LR
     F --> G[Revalidacao e acompanhamento]
 ```
 
-**Prioridade alta:** rever serviços sensíveis publicamente alcançáveis e qualquer exposição comprovada de alto impacto.
+**Prioridade alta:** revisar exposição desnecessária de serviços e categorias de risco de alto impacto confirmadas de forma independente.
 
 **Prioridade média:** corrigir falhas verificadas de configuração e avaliar ajustes em HTTPS, TLS e políticas de e-mail.
 
@@ -59,6 +59,6 @@ flowchart LR
 
 ## Limites e confidencialidade
 
-Esta avaliação não constitui teste de intrusão completo, auditoria de conformidade ou comprovação de exploração. Os resultados dependem do escopo autorizado, da disponibilidade dos serviços no momento do teste e da qualidade das fontes. Detalhes que permitam reconhecer o ambiente foram deliberadamente omitidos. **Nenhum artefato bruto de varredura ou relatório do cliente é disponibilizado neste repositório.**
+Esta avaliação não constitui teste de intrusão completo, auditoria de conformidade ou comprovação de exploração. A publicação depende de revisão explícita de confidencialidade e possibilidade de identificação indireta antes da integração. Os resultados dependem do escopo autorizado, da disponibilidade dos serviços no momento do teste e da qualidade das fontes. Detalhes que permitam reconhecer o ambiente foram deliberadamente omitidos. **Nenhum artefato bruto de varredura ou relatório do cliente é disponibilizado neste repositório.**
 
 [Voltar à documentação do SOC CORE](../../README.pt-BR.md) · [English version](external-exposure-assessment.md)
