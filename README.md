@@ -351,6 +351,12 @@ Reserved documentation IP ranges, invalid example domains and fabricated identit
 
 ---
 
+## Sanitized Field Studies
+
+- [Anonymized external exposure assessment — draft](docs/case-studies/external-exposure-assessment.md) — authorized security engineering workflow, evidence qualification and risk reduction. [Português](docs/case-studies/external-exposure-assessment.pt-BR.md). Publication requires a prior confidentiality review.
+
+---
+
 ## Areas of Engineering
 
 SOC CORE explores security engineering across:

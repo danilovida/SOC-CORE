@@ -224,6 +224,12 @@ Consulte [Política de Divulgação Pública](docs/PUBLIC-DISCLOSURE-POLICY.md).
 
 ---
 
+## Estudos de Caso Anonimizados
+
+- [Avaliação externa de exposição — rascunho](docs/case-studies/external-exposure-assessment.pt-BR.md) — fluxo autorizado de engenharia de segurança, qualificação de evidências e redução de riscos. [English](docs/case-studies/external-exposure-assessment.md). A publicação depende de revisão prévia de confidencialidade.
+
+---
+
 ## Áreas de Engenharia
 
 O SOC CORE explora temas como:
