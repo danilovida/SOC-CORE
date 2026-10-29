@@ -2,58 +2,53 @@
 
 [Português (Brasil)](soar-investigation-v1-v9.pt-BR.md)
 
-**Last validated:** October 19, 2026  
-**Status:** V6/V7 validated; V8 scheduled execution validated then intentionally disabled; V9 post-ticket integration installed and structurally validated, awaiting a real qualifying event.
+**Scope:** public, sanitized engineering overview. Operational schedules, internal policy thresholds, deployment configuration and live integration status are intentionally excluded.
 
 ## Purpose
 
-Enhance the existing SOC CORE detection, scoring, correlation, suppression and incident-management pipeline with **supplemental, advisory investigation**. The SOAR investigation layer does not replace SIEM/EDR investigation consoles, create a parallel incident queue or independently submit tickets.
+Develop a modular, **advisory** investigation layer that helps analysts understand security events through evidence extraction, contextual enrichment and historical correlation. It is designed to complement existing detection, incident-management and response controls, not replace analyst judgement.
 
-## Evolution and evidence
+## Engineering evolution
 
-| Iteration | Capability | Observed status |
+| Phase | Engineering focus | Public validation scope |
 | --- | --- | --- |
-| V1 | Read an existing incident and generate descriptive JSON | Tested |
-| V2 | Reuse an approved event classifier | Tested |
-| V3 | Extract network context and preserve grouped-event counts | Tested |
-| Correlation V4 | Search for related historical detections and potential scanner context | Tested; hypotheses require validation |
-| V5 | Consolidate V3 and V4 results | Tested |
-| V6 | Preserve approved classifications and give advisory recommendations | Two distinct historical cases tested |
-| V7 | Batch up to two pending incidents with local deduplication state | Manual batch and follow-up dry-run tested |
-| V8 | Run V7 via a resource-restricted systemd service and 15-minute timer | Manual service run and first scheduled run succeeded; timer later **disabled** |
-| V9 | Produce complementary JSON analysis after the **existing** ticket-creation path returns a ticket ID | Manual analysis tested; post-ticket hook added and import tested; **no post-ticket live invocation confirmed** |
+| V1 | Structured reporting for an incident | Descriptive output validated in a controlled test |
+| V2 | Reuse of authorized classification logic | Classification behavior reviewed against representative cases |
+| V3 | Extraction and normalization of security context | Evidence completeness assessed |
+| V4 | Historical context and related-event search | Correlation treated as a hypothesis requiring confirmation |
+| V5 | Consolidation of evidence into one reviewable report | Report structure and analyst-facing output assessed |
+| V6 | Preservation of evidence provenance and advisory recommendations | Recommendation consistency tested |
+| V7 | Controlled processing and duplicate-awareness | Reliability assessed through bounded tests |
+| V8 | Resource-aware orchestration patterns | Operational safety and isolation evaluated |
+| V9 | Complementary reporting integration pattern | Integration boundaries and failure handling reviewed |
 
-## Intended flow
+This table describes **engineering work and controlled validation only**. It must not be interpreted as proof that any component is active, enabled or end-to-end verified in a production environment.
+
+## Conceptual investigation model
 
 ```mermaid
 flowchart TD
-    A[Security telemetry and existing integrations] --> B[Existing SOC CORE correlation and score]
-    B --> C{Existing policy and suppression logic}
-    C -->|Qualifies| D[Existing ticket creation]
-    C -->|Suppressed| E[Continue existing flow without a new ticket]
-    D --> F{Ticket ID returned?}
-    F -->|Yes| G[V9 advisory investigation hook]
-    F -->|No| H[Existing error handling]
-    G --> I[Supplementary local JSON report]
+    A[Authorized security context] --> B[Evidence normalization]
+    B --> C[Historical correlation]
+    C --> D[Evidence provenance and risk context]
+    D --> E[Advisory investigation report]
+    E --> F[Analyst validation]
+    F --> G[Existing approved incident workflow]
 ```
 
-This is an **intended functional path**, not confirmation of the hook's first production invocation.
+## Validation principles
 
-## Operational details
+- Classifier outcomes must preserve their justification and source.
+- Signature matches and temporal correlations are not proof of compromise or benign activity.
+- Grouped event counts must not be described as distinct confirmed attacks.
+- Missing context, unsupported detections and ambiguous outcomes require human review.
+- Automated containment and incident actions remain subject to separate authorization, deterministic controls and auditable policy.
+- Experimental components must not interfere with existing production security functions.
 
-- The existing scoring, suppression and ticket-opening logic is authoritative; SOAR does not duplicate it.
-- The V9 hook is located after the existing ticket ID check. Module import, function signature, installation syntax and application restart were verified.
-- The application service restarted cleanly and its API initialized; no subsequent qualifying event appeared in the observed journal window, so **automatic V9 execution is still unverified**.
-- V8 processing is deliberately disabled to avoid investigating unrelated database records in a parallel workflow.
-- Investigation recommendations are advisory. No additional automatic isolation, IP blocking or ticket creation was enabled by V9.
-- Existing Active Response, scan scheduling and other operational workflows remain outside the scope of this work.
+## Public disclosure boundary
 
-## Safety and limitations
+This overview omits production triggers, implementation paths, detailed scheduling, deployment status, thresholds, report payloads, real case identifiers, network addressing, credentials and customer-specific information.
 
-Approved event classifications may suppress recommendations for known legitimate activity; unverified IDS signatures still require human assessment. Related alerts and temporal overlap with authorized scans do not prove either compromise or benignness. Grouped counts must not be treated as distinct attacks.
+## Next steps
 
-The live source code, internal infrastructure details, real incident identifiers, private addresses, ticket references, credentials and report contents are intentionally excluded from this public document.
-
-## Next validation
-
-Observe an organically occurring, qualifying ticket and confirm that the post-ticket V9 hook creates a supplementary report without changing ticket creation, containment or the original incident pipeline. Only then mark the integration operational.
+Continue evaluating advisory reporting quality, evidence traceability, controlled integration and safe failure handling before any production claims or changes to enforcement policy.
