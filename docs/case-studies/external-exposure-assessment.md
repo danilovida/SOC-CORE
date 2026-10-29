@@ -1,6 +1,6 @@
 # Field study | External exposure and vulnerability assessment
 
-**SOC CORE · Security Engineering · October 2026**
+**SOC CORE · Security Engineering · Anonymized field study**
 
 > **Anonymized field study.** This page summarizes lessons from an authorized external assessment at the risk-category level only. It contains no customer name, target domains, IP addresses, URLs, hostnames, specific ports, service versions, screenshots, asset counts, raw evidence or customer records.
 
@@ -22,8 +22,8 @@ This study illustrates a **SOC CORE-aligned security engineering workflow** comb
 
 | Area | Evidence status | Improvement opportunity |
 |---|---|---|
-| Internet-reachable data services | **Observed through non-intrusive checks:** a service was reachable and identifiable from the external network; no authenticated access was attempted. | Review business need for public exposure; use network restrictions, segmentation and private access paths; assess authentication and patch posture through approved internal processes. |
-| Email authentication (SPF) | **Reproduced through DNS-based validation:** a policy evaluation path exceeded the SPF DNS lookup budget and resulted in a processing error. | Simplify SPF mechanisms, remove unnecessary lookups, retest legitimate senders and monitor email authentication outcomes. |
+| Internet-facing service exposure | **Confirmed through authorized non-intrusive checks:** an exposure warranted additional review; implementation and fingerprint details are intentionally omitted. | Review the need for public exposure; apply appropriate network restrictions, segmentation and approved access controls. |
+| Email authentication policy hygiene | **Confirmed through authorized DNS-based checks:** policy complexity warranted follow-up; the precise configuration and validation results are intentionally omitted. | Simplify policy dependencies, validate authorized senders and monitor authentication outcomes. |
 | HTTPS and web security headers | **Third-party assessment signals; independent confirmation pending.** | Verify HTTPS enforcement, HSTS, CSP and relevant browser security headers before remediation. |
 | TLS configuration and certificates | **Third-party assessment signals; independent confirmation pending.** | Review supported protocols/ciphers, certificate validity and renewal processes. |
 | Web resource integrity and information exposure | **Third-party assessment signals; independent confirmation pending.** | Assess SRI configuration, error handling, visible application logs and unnecessary technical disclosure. |
@@ -44,7 +44,7 @@ flowchart LR
     F --> G[Retest and track]
 ```
 
-**High priority:** review sensitive services reachable from the internet and any independently confirmed high-impact exposures.
+**High priority:** review unnecessarily exposed services and independently confirmed high-impact exposure categories.
 
 **Medium priority:** address validated configuration defects and review HTTPS, TLS and email-authentication controls.
 
@@ -59,6 +59,6 @@ flowchart LR
 
 ## Scope and disclosure limits
 
-This activity was not a full penetration test, compliance audit or demonstration of exploitation. Findings depend on authorized scope, point-in-time reachability and source quality. Potentially identifying context has been deliberately excluded. **No raw scan output or customer assessment report is published in this repository.**
+This activity was not a full penetration test, compliance audit or demonstration of exploitation. Publication requires an explicit confidentiality and indirect-identification review before merging. Findings depend on authorized scope, point-in-time reachability and source quality. Potentially identifying context has been deliberately excluded. **No raw scan output or customer assessment report is published in this repository.**
 
 [Back to SOC CORE documentation](../../README.md) · [Português (Brasil)](external-exposure-assessment.pt-BR.md)
