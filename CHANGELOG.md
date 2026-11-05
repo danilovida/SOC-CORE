@@ -2,6 +2,20 @@
 
 All notable changes to the public SOC CORE documentation project will be documented here.
 
+## 2026-11-05
+
+### Documented
+
+- SOAR-based **automated brute-force protection** using correlation, threat intelligence validation and policy-controlled IP indicator blocking.
+- **Autonomous endpoint isolation** via Microsoft Defender for Endpoint in a restricted, authorized validation scope.
+- Safety controls, incident/action audit trails, and incident-to-ticket traceability where supported.
+- Clear separation between endpoint isolation, endpoint IP-indicator enforcement and perimeter firewall blocking.
+- Updated English and Brazilian Portuguese READMEs without publishing sensitive production logic or configurations.
+
+### Security
+
+- Documentation describes restricted rollout, authorization boundaries and human oversight; it does not assert fleet-wide deployment.
+
 ## 2026-10-06
 
 ### Added
