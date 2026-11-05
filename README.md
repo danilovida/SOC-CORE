@@ -2,7 +2,7 @@
 
 > **SOC CORE adapts to the company's security ecosystem, not the other way around.**
 
-**SOC CORE** is a security operations engineering project focused on bringing together **security telemetry, event correlation, threat intelligence enrichment, automation, AI-assisted analysis and incident response** through an adaptable integration architecture.
+**SOC CORE** is an information security and engineering platform focused on bringing together **security telemetry, event correlation, threat intelligence enrichment, automation, AI-assisted analysis and incident response** through an adaptable integration architecture.
 
 This repository is the **public technical documentation and engineering portfolio** for SOC CORE. It intentionally does **not** contain production source code, credentials, operational secrets, customer data, internal network details or sensitive configurations.
 
