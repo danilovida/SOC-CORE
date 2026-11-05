@@ -142,6 +142,19 @@ flowchart LR
 - Decisões e resultados são registrados para auditoria. Pontuações de inteligência representam risco, não comprovação de comprometimento.
 - Indicadores de endpoint não equivalem a bloqueios no perímetro da rede. Ações automáticas exigem validação e autorização organizacional.
 
+### SOAR — Defesa Automatizada contra Força Bruta e Isolamento de Dispositivos
+
+O SOC CORE amplia o Active Response com fluxos de **Security Orchestration, Automation and Response (SOAR)** para dois cenários distintos de contenção:
+
+- **Proteção contra força bruta:** correlaciona falhas recorrentes de autenticação e alertas de segurança, enriquece indicadores elegíveis de IP público com inteligência de ameaças e aplica bloqueio automatizado de indicadores autorizados quando os critérios de confiança e segurança são atendidos. Casos ambíguos ou de baixa confiança seguem para análise humana.
+- **Isolamento autônomo de endpoints:** em incidentes que atendem aos critérios configurados de autorização e validação, orquestra o isolamento de dispositivos por meio do **Microsoft Defender for Endpoint (MDE)** para conter possíveis comprometimentos e reduzir o risco de movimentação lateral. A integração contempla rastreabilidade das ações e vínculo auditável entre incidente e chamado, quando suportado.
+- **Segurança e governança:** escopo restrito de ativos, validação de identidade do dispositivo, permissões, exceções, prevenção de ações duplicadas, verificação do estado da resposta e registro dos resultados. O isolamento é uma medida de alto impacto, sujeita à política de autorização da organização, supervisão humana e procedimentos de recuperação.
+- **Escopo de implantação:** a automação de isolamento foi exercitada em **escopo restrito e autorizado de homologação**; isso não representa isolamento autônomo indiscriminado em toda a infraestrutura nem garante isolamento para todo evento suspeito.
+
+Os controles são distintos: o **bloqueio de indicadores IP** não equivale a um bloqueio em todo o perímetro de rede, enquanto o **isolamento de endpoint** se limita aos dispositivos elegíveis e autorizados. Sinais de detecção e inteligência orientam a análise de risco, mas não comprovam, isoladamente, um comprometimento.
+
+> Esta documentação apresenta apenas as capacidades em alto nível. Gatilhos exatos, limiares de confiança, listas de exceção, identidades dos dispositivos, detalhes de rede, credenciais e playbooks operacionais permanecem privados.
+
 **Evolução de engenharia:** aprimoramento contínuo da integração controlada com gestão de incidentes e análise humana em situações ambíguas; estado de implantação, horários e detalhes internos permanecem privados.
 
 > **Nota de segurança pública:** Não são divulgados IPs de produção, identidades, dados do tenant, credenciais, regras exatas de detecção ou caminhos privados de implantação. Bloqueios automáticos exigem autorização da organização e manutenção criteriosa das exceções.
