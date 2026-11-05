@@ -2,7 +2,7 @@
 
 > **O SOC CORE se adapta ao ecossistema de segurança da empresa, e não o contrário.**
 
-O **SOC CORE** é um projeto de engenharia para operações de segurança focado em reunir **telemetria de segurança, correlação de eventos, enriquecimento com inteligência de ameaças, automação, análise assistida por IA e resposta a incidentes** por meio de uma arquitetura adaptável de integração.
+O **SOC CORE** é uma plataforma de segurança da informação e de engenharia, focada em reunir **telemetria de segurança, correlação de eventos, enriquecimento com inteligência de ameaças, automação, análise assistida por IA e resposta a incidentes** por meio de uma arquitetura adaptável de integração.
 
 Este repositório é a **documentação técnica pública e portfólio de engenharia** do SOC CORE. Ele intencionalmente não contém código-fonte de produção, credenciais, segredos operacionais, dados de clientes, detalhes internos de rede ou configurações sensíveis.
 
