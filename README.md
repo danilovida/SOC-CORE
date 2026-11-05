@@ -161,6 +161,19 @@ flowchart LR
 - Decisions and action outcomes are recorded for auditability. Intelligence scores indicate risk, not proven compromise.
 - Endpoint indicator enforcement is distinct from network-perimeter filtering. Automated actions require validation and organizational authorization.
 
+### SOAR — Automated Brute-Force Defense and Device Isolation
+
+SOC CORE extends Active Response with **Security Orchestration, Automation and Response (SOAR)** workflows for two distinct containment scenarios:
+
+- **Brute-force protection:** correlate repeated authentication failures and relevant security alerts, enrich eligible public-IP indicators with threat intelligence, and automatically apply authorized indicator-based blocking when predefined confidence and safety checks are satisfied. Low-confidence and ambiguous cases remain subject to analyst review.
+- **Autonomous endpoint isolation:** for incidents that meet configured authorization and validation criteria, orchestrate device isolation through **Microsoft Defender for Endpoint (MDE)** to contain suspected compromise and reduce lateral-movement risk. The integration includes action tracking and an auditable incident/ticket linkage where supported.
+- **Safety and governance:** enforce restricted target scope, device identity checks, permissions, exclusions, duplicate-action prevention, response-state verification and documented outcomes. Isolation is a consequential response that must be authorized by organizational policy; analysts retain oversight and recovery procedures.
+- **Deployment scope:** device-isolation automation has been exercised in a **restricted, authorized validation scope**; this documentation does not imply fleet-wide autonomous enforcement or guarantee that every suspicious event results in isolation.
+
+These response paths are separate: **IP-indicator blocking** does not imply full network perimeter blocking, and **endpoint isolation** is applied only to eligible, authorized devices. Detection and intelligence signals support risk-based decisions but do not alone prove compromise.
+
+> Only high-level capabilities are disclosed. Exact triggers, confidence thresholds, allowlists, device identities, network details, credentials and operational playbooks remain private.
+
 **Engineering direction:** Continue improving controlled incident-management integration and human review for ambiguous cases; deployment status, timing and internal implementation details are maintained privately.
 
 > **Public security note:** This section intentionally excludes production IP addresses, identities, tenant details, credentials, exact detection rules and private deployment paths. Automatic blocking requires organizational authorization and carefully maintained exclusions.
