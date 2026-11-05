@@ -178,6 +178,22 @@ These response paths are separate: **IP-indicator blocking** does not imply full
 
 > **Public security note:** This section intentionally excludes production IP addresses, identities, tenant details, credentials, exact detection rules and private deployment paths. Automatic blocking requires organizational authorization and carefully maintained exclusions.
 
+#### Ransomware containment safeguards and server protection (November 2026)
+
+The SOAR endpoint-containment workflow has progressed from restricted validation to **scheduled, policy-gated monitoring** for an explicitly authorized Service Desk endpoint scope. Its first production monitoring cycle completed successfully; no eligible ransomware containment was triggered during that observed cycle. End-to-end ticket creation and isolation for a real qualifying ransomware incident remain **unverified in production**.
+
+The defense-in-depth workflow includes:
+
+- **High-confidence ransomware filtering:** Microsoft Defender for Endpoint alerts must satisfy severity, threat classification, device-identity and malicious process/file evidence requirements. Recent independent evidence and revalidation of the current alert state are used before requesting a consequential action.
+- **Restricted target eligibility:** device IDs are checked against an approved endpoint scope; device identity, operating system, agent health and ambiguous identity records are evaluated before containment.
+- **Server exclusion:** the endpoint-isolation design includes an additional independent server safety fence using a fixed authorization scope and server-role indicators. This safeguard is documented as a deployment hardening step; it should only be considered operational once the updated executor is installed and verified.
+- **Service Desk integration:** for a qualifying event, the workflow is designed to create a normal incident ticket using the existing incident-management integration **before** submitting a Microsoft Defender isolation request. Failure or uncertainty during ticket creation stops the isolation request.
+- **Idempotency and audit trail:** incident correlation and persistent action states prevent blind automatic retries; a Microsoft API acknowledgement is tracked separately from confirmed action completion.
+- **Linux SOC server protection:** Microsoft Defender for Endpoint for Linux provides active real-time and behavioral protection on the SOC platform host. A separate alert-to-ticket monitor is prepared for critical detections, with **no automatic server isolation**. Its deployment state is verified separately.
+
+**Operational boundary:** automatic isolation is limited to eligible authorized endpoints; infrastructure servers and the SOC platform host are not intended targets. Security controls reduce risk but do not eliminate false positives or guarantee containment success. Production identities, exact rules, secrets, tickets and deployment details are not published.
+
+
 ---
 
 ## Conceptual Architecture
