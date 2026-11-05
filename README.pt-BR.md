@@ -159,6 +159,22 @@ Os controles são distintos: o **bloqueio de indicadores IP** não equivale a um
 
 > **Nota de segurança pública:** Não são divulgados IPs de produção, identidades, dados do tenant, credenciais, regras exatas de detecção ou caminhos privados de implantação. Bloqueios automáticos exigem autorização da organização e manutenção criteriosa das exceções.
 
+#### Contenção de ransomware e proteção de servidores (novembro de 2026)
+
+O fluxo SOAR de contenção de endpoints evoluiu da homologação restrita para o **monitoramento agendado, condicionado por políticas de segurança**, em um escopo explicitamente autorizado de dispositivos do Service Desk. O primeiro ciclo em produção terminou com sucesso, sem ocorrência elegível para isolamento. A abertura de chamado e o isolamento de um incidente real de ransomware que atenda aos critérios ainda **não foram validados de ponta a ponta em produção**.
+
+A arquitetura de proteção em camadas contempla:
+
+- **Filtro rigoroso de ransomware:** os alertas do Microsoft Defender for Endpoint precisam atender a critérios de severidade, classificação de ameaça, identidade do equipamento e evidências maliciosas independentes de processo e arquivo. O fluxo exige evidências recentes e revalida o estado atual do alerta antes de solicitar ações de impacto.
+- **Escopo de ativos restrito:** os IDs dos dispositivos são conferidos com uma lista autorizada; identidade, sistema operacional, saúde do agente e registros ambíguos são avaliados antes da contenção.
+- **Exclusão de servidores:** o projeto inclui uma barreira independente adicional contra isolamento de servidores, com escopo de autorização fixo e verificação de indicadores de função de servidor. A proteção adicional é uma etapa de endurecimento e só deve ser considerada operacional após instalação e validação do executor atualizado.
+- **Integração com o Service Desk:** em evento elegível, o fluxo foi projetado para abrir um chamado normal pelo sistema de gestão de incidentes **antes** de solicitar isolamento ao Microsoft Defender. Falha ou incerteza na abertura impede a solicitação de isolamento.
+- **Prevenção de duplicidades e auditoria:** correlação de incidentes e estados persistidos evitam novas tentativas automáticas às cegas; a aceitação da API Microsoft é registrada separadamente da confirmação da conclusão da ação.
+- **Proteção do servidor SOC Linux:** o Microsoft Defender for Endpoint para Linux já oferece proteção ativa em tempo real e monitoramento comportamental no servidor do SOC. Um monitor separado de alertas e abertura de chamados foi preparado para detecções graves, **sem isolamento automático do servidor**. Sua ativação é verificada separadamente.
+
+**Limite operacional:** o isolamento automático fica restrito aos endpoints elegíveis e autorizados; servidores de infraestrutura e o servidor do SOC não são alvos previstos. Os controles reduzem riscos, mas não eliminam falsos positivos nem garantem sucesso da contenção. Identidades, regras exatas, credenciais, chamados e detalhes de implantação não são publicados.
+
+
 ---
 
 ### Risk Intelligence — Priorização de Vulnerabilidades
