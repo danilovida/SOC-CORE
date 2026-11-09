@@ -178,6 +178,31 @@ These response paths are separate: **IP-indicator blocking** does not imply full
 
 > **Public security note:** This section intentionally excludes production IP addresses, identities, tenant details, credentials, exact detection rules and private deployment paths. Automatic blocking requires organizational authorization and carefully maintained exclusions.
 
+### SOAR — SHA-256 File Indicator Protection (November 2026)
+
+SOC CORE has added a **file-hash response workflow** integrating **Microsoft Defender for Endpoint**, **VirusTotal** threat intelligence and **DeskManager** incident management.
+
+**Conceptual workflow:**
+
+```mermaid
+flowchart LR
+    DET[Defender file alert] --> HASH[SHA-256 evidence extraction]
+    HASH --> TI[Threat intelligence correlation]
+    TI --> GATE{Policy and scope checks}
+    GATE -->|Eligible| BLOCK[Scoped Defender file indicator]
+    GATE -->|Ambiguous| REVIEW[Analyst review]
+    BLOCK --> TICKET[Incident-management ticket]
+    BLOCK --> AUDIT[Audit and rollback controls]
+```
+
+- **Evidence-driven classification:** correlates file evidence from Defender alerts with VirusTotal reputation; a detection ratio alone does not establish maliciousness or authorize enforcement.
+- **Scoped indicator enforcement:** creates file-hash block indicators through Microsoft Defender for Endpoint only for a restricted, approved endpoint group. Infrastructure servers and the broader production fleet are **outside the current validation scope**.
+- **Ticket and audit integration:** successfully validated creation of an incident-management ticket linked to a confirmed indicator, with contextual details for investigation and traceability.
+- **Safety controls:** duplicate handling, persistent action tracking, an emergency stop for new writes and controlled rollback of indicators created by this workflow.
+- **Validation status (November 9, 2026):** SHA-256 extraction and VirusTotal enrichment were tested with a harmless EICAR test file; creation of a scoped Microsoft Defender block indicator, ticket opening and indicator deletion were verified independently. Scheduled orchestration was installed, initialized and completed an initial cycle without new eligible evidence. **A fresh event traversing every step automatically remains to be validated** before broad deployment.
+
+> Public documentation omits real hashes, ticket and incident IDs, endpoint names, organization-specific group names, internal authorization criteria, credentials and production configuration.
+
 #### Ransomware containment safeguards and server protection (November 2026)
 
 The SOAR endpoint-containment workflow has progressed from restricted validation to **scheduled, policy-gated monitoring** for an explicitly authorized Service Desk endpoint scope. Its first production monitoring cycle completed successfully; no eligible ransomware containment was triggered during that observed cycle. End-to-end ticket creation and isolation for a real qualifying ransomware incident remain **unverified in production**.
