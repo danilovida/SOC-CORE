@@ -159,6 +159,31 @@ Os controles são distintos: o **bloqueio de indicadores IP** não equivale a um
 
 > **Nota de segurança pública:** Não são divulgados IPs de produção, identidades, dados do tenant, credenciais, regras exatas de detecção ou caminhos privados de implantação. Bloqueios automáticos exigem autorização da organização e manutenção criteriosa das exceções.
 
+### SOAR — Proteção de Arquivos por Indicadores SHA-256 (novembro de 2026)
+
+O SOC CORE incorporou um **fluxo de resposta por hash de arquivo**, integrando **Microsoft Defender for Endpoint**, inteligência de ameaças do **VirusTotal** e gestão de incidentes no **DeskManager**.
+
+**Fluxo conceitual:**
+
+```mermaid
+flowchart LR
+    DET[Alerta de arquivo no Defender] --> HASH[Extração da evidência SHA-256]
+    HASH --> TI[Correlação com inteligência de ameaças]
+    TI --> GATE{Critérios e escopo autorizados?}
+    GATE -->|Elegível| BLOCK[Indicador de bloqueio restrito no Defender]
+    GATE -->|Ambíguo| REVIEW[Revisão do analista]
+    BLOCK --> TICKET[Chamado na gestão de incidentes]
+    BLOCK --> AUDIT[Auditoria e reversão]
+```
+
+- **Classificação baseada em evidências:** correlaciona evidências de arquivos dos alertas do Defender com reputação VirusTotal; a quantidade de detecções, isoladamente, não comprova ameaça nem autoriza bloqueio.
+- **Bloqueio por indicador com escopo restrito:** cria indicadores de bloqueio de hash no Microsoft Defender for Endpoint somente em grupo de endpoints autorizado para homologação. Servidores de infraestrutura e o parque geral de produção permanecem **fora do escopo atual**.
+- **Chamados e auditoria:** abertura de chamado vinculada a um indicador confirmado foi homologada, incluindo informações de contexto, rastreabilidade e orientação à equipe de segurança.
+- **Controles de segurança:** prevenção de duplicidades, estados persistentes de ações, desligamento emergencial de novas escritas e reversão controlada dos indicadores criados pelo fluxo.
+- **Situação em 09/11/2026:** extração de SHA-256 e consulta ao VirusTotal testadas com arquivo inofensivo EICAR; criação de indicador restrito no Defender, abertura de chamado e exclusão do indicador comprovadas individualmente. O orquestrador agendado foi instalado, inicializado e executou um primeiro ciclo sem novas evidências elegíveis. **Ainda falta validar um novo evento percorrendo automaticamente todas as etapas** antes de ampliar a implantação.
+
+> A documentação pública omite hashes reais, IDs de chamados e incidentes, nomes de dispositivos, grupos específicos da organização, critérios internos de autorização, credenciais e configurações de produção.
+
 #### Contenção de ransomware e proteção de servidores (novembro de 2026)
 
 O fluxo SOAR de contenção de endpoints evoluiu da homologação restrita para o **monitoramento agendado, condicionado por políticas de segurança**, em um escopo explicitamente autorizado de dispositivos do Service Desk. O primeiro ciclo em produção terminou com sucesso, sem ocorrência elegível para isolamento. A abertura de chamado e o isolamento de um incidente real de ransomware que atenda aos critérios ainda **não foram validados de ponta a ponta em produção**.
