@@ -2,6 +2,20 @@
 
 All notable changes to the public SOC CORE documentation project will be documented here.
 
+## 2026-11-09
+
+### Added
+
+- Public documentation of the **SOAR SHA-256 file-indicator protection workflow** integrating Microsoft Defender for Endpoint, VirusTotal and DeskManager.
+- Scoped file-indicator blocking, auditability, duplicate prevention, emergency stop and controlled rollback.
+- Verified individual EICAR-based validation steps: file evidence collection, threat-intelligence enrichment, Defender indicator creation and deletion, and incident-management ticket creation.
+- Scheduled orchestration initialized and tested for a cycle with no new eligible evidence; **full unattended end-to-end handling of a fresh event remains pending validation**.
+
+### Security
+
+- Restricted validation scope excludes servers and the general production endpoint fleet.
+- No real indicators, endpoints, incident identifiers, customer data, secrets or enforcement thresholds published.
+
 ## 2026-11-05
 
 ### Documented
